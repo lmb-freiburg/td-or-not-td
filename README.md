@@ -1,6 +1,10 @@
 # ViZDoom controlled reinforcement learning tasks
 
-Code for the ViZDoom tasks of the paper [TD or not TD: Analyzing the Role of Temporal Differencing in Deep Reinforcement Learning](https://lmb.informatik.uni-freiburg.de/projects/tdornottd/), Artemij Amiranashvili, Alexey Dosovitskiy, Vladlen Koltun and Thomas Brox, ICLR 2018
+Code for the ViZDoom tasks of the paper [TD or not TD: Analyzing the Role of Temporal Differencing in Deep Reinforcement Learning](https://lmb.informatik.uni-freiburg.de/projects/tdornottd/), Artemij Amiranashvili, Alexey Dosovitskiy, Vladlen Koltun and Thomas Brox, ICLR 2018.
+
+## Algorithms:
+
+We plan to release the code of the algorithms at a later time point.
 
 ## Dependencies:
 
@@ -44,7 +48,7 @@ List of `doom_lvl` names:
 
 The Battle tasks are based on the environments from [Learning to Act by Predicting the Future](https://github.com/IntelVCL/DirectFuturePrediction) by Alexey Dosovitskiy and Vladlen Koltun, ICLR 2017.
 
-If you use the new doom tasks in your research, please cite the following paper:
+If you use the new ViZDoom tasks in your research, please cite the following paper:
 
     @InProceedings{adkb2018td,
     author    = {Artemij Amiranashvili and Alexey Dosovitskiy and Vladlen Koltun and Thomas Brox},

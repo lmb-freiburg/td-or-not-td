@@ -196,7 +196,7 @@ if __name__ == "__main__":
   import argparse
 
   parser = argparse.ArgumentParser()
-  parser.add_argument('-doom_lvl', type=str, default="hg_normal_many_textures", choices=(
+  parser.add_argument('-doom_lvl', type=str, default="hg_normal", choices=(
     "navigation", "battle", "battle_2",
     "hg_normal", "hg_sparse", "hg_very_sparse",
     "hg_normal_health_reward", "hg_normal_many_textures",
