@@ -1,25 +1,58 @@
-# ViZDoom controlled reinforcement learning tasks
+# ViZDoom controlled reinforcement learning tasks and asynchronous Qmc, n-step Q, and A3C implementations
 
-Code for the ViZDoom tasks of the paper [TD or not TD: Analyzing the Role of Temporal Differencing in Deep Reinforcement Learning](https://lmb.informatik.uni-freiburg.de/projects/tdornottd/), Artemij Amiranashvili, Alexey Dosovitskiy, Vladlen Koltun and Thomas Brox, ICLR 2018.
-
-## Algorithms:
-
-We plan to release the code of the algorithms at a later time point.
+Code for the paper [TD or not TD: Analyzing the Role of Temporal Differencing in Deep Reinforcement Learning](https://lmb.informatik.uni-freiburg.de/projects/tdornottd/), Artemij Amiranashvili, Alexey Dosovitskiy, Vladlen Koltun and Thomas Brox, ICLR 2018.
 
 ## Dependencies:
 
+- Python3
+- TensorFlow (tested with version 1.0)
 - ViZDoom and its dependencies
 - pillow
 
-We used ViZDoom version 1.1.1 in our experiments. Since ViZDoom version 1.1.5 uses different textures for health packs, it might affect the performance.
+We used ViZDoom version 1.1.1 in our experiments. Since ViZDoom version 1.1.5 uses different textures for health packs, it might slightly affect the performance.
+
+## Installation:
+
+Enter the td_or_not_td directory and run:
+
+    pip3 install -e .
+
+## Algorithms:
+
+The three available algorithms are: 
+
+- `Qmc` on-policy asynchronous dueling Monte Carlo Q-learning with a finite horizon
+- `Q` on-policy asynchronous dueling n-step DDQN)
+- `a3c` on-policy asynchronous advantage actor critic
+
+## Running:
+
+#### Training
+
+    python3 td_or_not_td/alg/main.py -main_path PATH_TO_DATA_OUTPUT -algorithm Qmc -doom_lvl hg_normal
+
+#### Evaluation
+
+Evaluate all network snapshots created by the training:
+
+    python3 td_or_not_td/alg/main.py -eval -main_path PATH_TO_DATA_OUTPUT -algorithm Qmc -doom_lvl hg_normal
+
+As long as main_path exists, the evaluation can begin in parallel or before the training. In those cases the script will wait until the network snapshots appear.
+The evaluation results are stored in the `evaluation_log.txt` file at main_path. The first column shows the snapshot id, the second the training reward and the third the evaluation reward.
+
+---
+
+To see all available arguments run:
+
+    python3 td_or_not_td/alg/main.py -h
 
 ## Tasks:
 
-The tasks are selected by the `doom_lvl` argument of the `Environment` class. The tasks can be tested by running 
+The tasks are selected by the `doom_lvl` argument. The tasks can be tested by running:
 
-    python3 env_doom.py [<doom_lvl>]
+    python3 td_or_not_td/env/env_doom.py [<doom_lvl>]
 
-List of `doom_lvl` names:
+List of all `doom_lvl` names:
 
 - Basic health gathering:
   - `hg_normal`
@@ -40,6 +73,8 @@ List of `doom_lvl` names:
   - `hg_terminal_health_m_1`
   - `hg_terminal_health_m_2`
   - `hg_terminal_health_m_3`
+- Basic health gathering with multiple textures:
+  - `hg_normal_many_textures`
 
 - Additional Tasks:
   - `navigation`
@@ -48,12 +83,12 @@ List of `doom_lvl` names:
 
 The Battle tasks are based on the environments from [Learning to Act by Predicting the Future](https://github.com/IntelVCL/DirectFuturePrediction) by Alexey Dosovitskiy and Vladlen Koltun, ICLR 2017.
 
-If you use the new ViZDoom tasks in your research, please cite the following paper:
+If you use the new ViZDoom tasks or the algorithm implementations in your research, please cite the following paper:
 
     @InProceedings{adkb2018td,
-    author    = {Artemij Amiranashvili and Alexey Dosovitskiy and Vladlen Koltun and Thomas Brox},
-    title     = {TD or not TD: Analyzing the Role of Temporal Differencing in Deep Reinforcement Learning},
-    booktitle = "International Conference on Learning Representations (ICLR)",
-    year      = {2018},
-    url       = "https://lmb.informatik.uni-freiburg.de/projects/tdornottd/"
+        author    = {Amiranashvili, Artemij and Dosovitskiy, Alexey and Koltun, Vladlen and Brox, Thomas},
+        title     = {TD or not TD: Analyzing the Role of Temporal Differencing in Deep Reinforcement Learning},
+        booktitle = "International Conference on Learning Representations (ICLR)",
+        year      = {2018},
+        url       = "https://lmb.informatik.uni-freiburg.de/projects/tdornottd/"
     }
