@@ -13,7 +13,7 @@ We used ViZDoom version 1.1.1 in our experiments. Since ViZDoom version 1.1.5 us
 
 ## Installation:
 
-Enter the td_or_not_td directory and run:
+Enter the `td-or-not-td` directory and run:
 
     pip3 install -e .
 
