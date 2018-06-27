@@ -22,7 +22,7 @@ Enter the `td-or-not-td` directory and run:
 The three available algorithms are: 
 
 - `Qmc` on-policy asynchronous dueling Monte Carlo Q-learning with a finite horizon
-- `Q` on-policy asynchronous dueling n-step DDQN)
+- `Q` on-policy asynchronous dueling n-step DDQN
 - `a3c` on-policy asynchronous advantage actor critic
 
 ## Running:
