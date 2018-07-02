@@ -1,10 +1,10 @@
-## Code for the paper: TD or not TD: Analyzing the Role of Temporal Differencing in Deep Reinforcement Learning
+# Code for the paper: TD or not TD: Analyzing the Role of Temporal Differencing in Deep Reinforcement Learning
 
 **Artemij Amiranashvili, Alexey Dosovitskiy, Vladlen Koltun and Thomas Brox, ICLR 2018 ([paper link](https://lmb.informatik.uni-freiburg.de/projects/tdornottd/)).**
 
 **Includes the ViZDoom controlled reinforcement learning tasks and asynchronous Qmc, n-step Q, and A3C implementations.**
 
-### Dependencies:
+## Dependencies:
 - Python3
 - TensorFlow (tested with version 1.0)
 - ViZDoom and its dependencies
@@ -12,13 +12,13 @@
 
 We used ViZDoom version 1.1.1 in our experiments. Since ViZDoom version 1.1.5 uses different textures for health packs, it might slightly affect the performance.
 
-### Installation:
+## Installation:
 
 Enter the `td-or-not-td` directory and run:
 
     pip3 install -e .
 
-### Algorithms:
+## Algorithms:
 
 The three available algorithms are: 
 
@@ -26,13 +26,13 @@ The three available algorithms are:
 - `Q` on-policy asynchronous dueling n-step DDQN
 - `a3c` on-policy asynchronous advantage actor critic
 
-### Running:
+## Running:
 
-##### Training
+#### Training
 
     python3 td_or_not_td/alg/main.py -main_path PATH_TO_DATA_OUTPUT -algorithm Qmc -doom_lvl hg_normal
 
-##### Evaluation
+#### Evaluation
 
 Evaluate all network snapshots created by the training:
 
@@ -47,7 +47,7 @@ To see all available arguments run:
 
     python3 td_or_not_td/alg/main.py -h
 
-### Tasks:
+## Tasks:
 
 The tasks are selected by the `doom_lvl` argument. The tasks can be tested by running:
 
